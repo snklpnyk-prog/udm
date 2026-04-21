@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import FadeUp from "./FadeUp";
 
 interface ServiceCardProps {
@@ -9,10 +10,8 @@ interface ServiceCardProps {
 
 function ServiceCard({ icon, title, href, variant }: ServiceCardProps) {
   const styles = {
-    light:
-      "bg-zinc-100 text-black hover:bg-brand hover:text-white",
-    brand:
-      "bg-brand text-white hover:bg-black hover:text-white",
+    light: "bg-zinc-100 text-black hover:bg-brand hover:text-white",
+    brand: "bg-brand text-white hover:bg-black hover:text-white",
     dark: "bg-black text-white hover:bg-zinc-800",
   }[variant];
 
@@ -37,6 +36,10 @@ function ServiceCard({ icon, title, href, variant }: ServiceCardProps) {
       ? "text-white"
       : "text-black group-hover:text-white";
 
+  const isInternal = href.startsWith("/");
+  const Wrapper: any = isInternal ? Link : "a";
+  const wrapperProps = isInternal ? { to: href } : { href };
+
   return (
     <div
       className={`${styles} p-5 rounded-[22px] border-2 border-black brutalist-shadow flex flex-col justify-between min-h-[230px] group transition-colors h-full`}
@@ -51,8 +54,8 @@ function ServiceCard({ icon, title, href, variant }: ServiceCardProps) {
         </h3>
       </div>
 
-      <a
-        href={href}
+      <Wrapper
+        {...wrapperProps}
         className={`flex items-center gap-2 text-base font-bold mt-auto ${linkColor}`}
       >
         <span
@@ -61,64 +64,61 @@ function ServiceCard({ icon, title, href, variant }: ServiceCardProps) {
           <iconify-icon icon="solar:arrow-right-up-linear" className="text-lg" />
         </span>
         Learn more
-      </a>
+      </Wrapper>
     </div>
   );
 }
 
 export default function Services() {
   const services: ServiceCardProps[] = [
-    { icon: "solar:magnifer-zoom-in-linear", title: "Google My Business\noptimization", href: "#go", variant: "light" },
-    { icon: "solar:mouse-circle-linear", title: "Meta & Google\nads", href: "#mga", variant: "brand" },
-    { icon: "solar:smartphone-update-linear", title: "Social Media\nMarketing", href: "#social", variant: "dark" },
-    { icon: "solar:letter-opened-linear", title: "Search engine\noptimization", href: "#seo", variant: "light" },
-    { icon: "solar:pen-new-square-linear", title: "Content\nCreation", href: "#content", variant: "brand" },
-    { icon: "solar:chart-square-linear", title: "YouTube\nManagement", href: "#analytics", variant: "dark" },
+    { icon: "solar:letter-opened-linear", title: "Search Engine\nOptimization (SEO)", href: "/services/seo", variant: "light" },
+    { icon: "solar:map-point-linear", title: "Google My Business\nOptimization", href: "/services/google-my-business", variant: "brand" },
+    { icon: "solar:smartphone-update-linear", title: "Meta Ads\n(Facebook & Instagram)", href: "/services/meta-ads", variant: "dark" },
+    { icon: "solar:mouse-circle-linear", title: "Google\nAds", href: "/services/google-ads", variant: "light" },
+    { icon: "solar:target-linear", title: "Lead\nGeneration", href: "/get-proposal", variant: "brand" },
+    { icon: "solar:chat-round-dots-linear", title: "Social Media\nMarketing", href: "/services/social-media", variant: "dark" },
+    { icon: "solar:laptop-linear", title: "Website\nDevelopment", href: "/services/website", variant: "light" },
+    { icon: "solar:user-speak-linear", title: "Influencer\nMarketing", href: "/get-proposal", variant: "brand" },
   ];
 
   return (
     <section id="services" className="max-w-7xl mx-auto px-4 py-10">
-      
       <FadeUp className="grid lg:grid-cols-12 gap-6 items-center mb-8">
-        
         <div className="lg:col-span-8">
           <div className="inline-block bg-brand text-brand-foreground font-bold px-3 py-1 border-2 border-black rounded-lg mb-3 text-sm -rotate-2">
             Our Services
           </div>
 
           <h2 className="text-2xl lg:text-3xl font-bold tracking-tight leading-snug">
-            At our digital marketing agency, we offer a range of services to help
-            businesses grow and succeed online.
+            We help businesses rank in <span className="text-brand">Top 10 on Google</span> & generate consistent leads.
           </h2>
+          <p className="text-zinc-700 mt-3 font-semibold max-w-2xl">
+            Full-stack digital marketing under one roof — from SEO and ads to social, websites and influencer.
+          </p>
         </div>
 
         <div className="lg:col-span-4 flex justify-center lg:justify-end relative">
-          
           <div className="w-32 h-32 bg-white border-2 border-black rounded-full brutalist-shadow flex items-center justify-center relative z-10 group">
             <iconify-icon
               icon="solar:target-linear"
               className="text-[3rem] text-black group-hover:scale-110 transition-transform duration-300"
             />
           </div>
-
           <div className="absolute w-32 h-32 bg-brand border-2 border-black rounded-full translate-x-3 translate-y-3" />
-
           <iconify-icon
             icon="solar:star-fall-linear"
             className="absolute -top-2 right-6 text-2xl text-black rotate-12 z-20 animate-pulse"
           />
         </div>
-
       </FadeUp>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
         {services.map((s) => (
           <FadeUp key={s.title}>
             <ServiceCard {...s} />
           </FadeUp>
         ))}
       </div>
-
     </section>
   );
 }

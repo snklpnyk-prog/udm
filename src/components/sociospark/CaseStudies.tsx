@@ -62,19 +62,22 @@ export default function CaseStudies() {
   return (
     <>
       {/* ================= TEAM ================= */}
-     <section className="w-600">
+     <section className="w-full">
   <div className="relative bg-black overflow-hidden">
 
     {/* IMAGE */}
     <img
       src={team}
       alt="Our Team"
-      className="w-full ml-40 h-[300px] object-contain bg-black mr-[10px]"
+      className="w-full h-[420px] lg:h-[520px] object-cover object-center bg-black"
     />
+
+    {/* GRADIENT OVERLAY */}
+    <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent" />
 
     {/* TEXT OVERLAY */}
     <div className="absolute inset-0 flex flex-col justify-center items-start px-6 lg:px-20 text-white max-w-3xl">
-      
+
       <h2 className="text-3xl lg:text-5xl font-black mb-6">
         OUR TEAM
       </h2>

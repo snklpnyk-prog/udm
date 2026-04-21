@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export default function Footer() {
@@ -57,23 +58,31 @@ export default function Footer() {
                 </a>
               </div>
 
-              <div className="flex items-center gap-4">
+              <div className="flex flex-wrap items-center gap-4">
                 <a
                   href="https://wa.me/919993663668"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-brand hover:bg-white text-white hover:text-black px-8 py-4 rounded-xl text-lg font-black transition-colors duration-300 border-4 border-brand hover:border-white tracking-tighter"
+                  className="bg-brand hover:bg-white text-white hover:text-black px-6 py-4 rounded-xl text-base font-black transition-colors duration-300 border-4 border-brand hover:border-white tracking-tighter"
                 >
                   Chat on WhatsApp
                 </a>
                 <a
+                  href="https://calendly.com/udmtechnosolution/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white text-black px-6 py-4 rounded-xl text-base font-black border-4 border-white hover:border-brand hover:text-brand transition-colors tracking-tighter"
+                >
+                  Schedule a 15-min Call
+                </a>
+                <a
                   href="tel:+919993663668"
                   aria-label="Call us"
-                  className="w-16 h-16 rounded-xl bg-zinc-800 hover:bg-brand text-white flex items-center justify-center transition-colors duration-300 group border-4 border-zinc-800 hover:border-brand"
+                  className="w-14 h-14 rounded-xl bg-zinc-800 hover:bg-brand text-white flex items-center justify-center transition-colors duration-300 group border-4 border-zinc-800 hover:border-brand"
                 >
                   <iconify-icon
                     icon="solar:phone-calling-linear"
-                    className="text-3xl group-hover:rotate-12 transition-transform"
+                    className="text-2xl group-hover:rotate-12 transition-transform"
                   />
                 </a>
               </div>
@@ -81,30 +90,37 @@ export default function Footer() {
 
             <div className="col-span-1 lg:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-10 lg:pl-10 w-full">
               {[
-                { title: "Sitemap", links: [["Home", "#"], ["About", "#about"], ["Works", "#case-studies"]] },
-                { title: "Services", links: [["Local SEO", "#seo"], ["Social Media", "#social"], ["GMB Optimisation", "#ppc"], ["Website Design", "#services"]] },
-                { title: "Social", links: [["Instagram", "#"], ["LinkedIn", "#"], ["Facebook", "#"]] },
-                { title: "Legal", links: [["Privacy Policy", "#"], ["Terms of Use", "#"]], muted: true },
+                { title: "Sitemap", links: [["Home", "/"], ["About", "/about"], ["Blog", "/blog"], ["Get Proposal", "/get-proposal"]] },
+                { title: "Services", links: [["SEO", "/services/seo"], ["Google My Business", "/services/google-my-business"], ["Meta Ads", "/services/meta-ads"], ["Google Ads", "/services/google-ads"], ["Website", "/services/website"], ["Social Media", "/services/social-media"]] },
+                { title: "Social", links: [["Instagram", "https://instagram.com"], ["LinkedIn", "https://linkedin.com"], ["Facebook", "https://facebook.com"]] },
+                { title: "Legal", links: [["Privacy Policy", "/privacy"], ["Terms & Conditions", "/terms"]], muted: true },
               ].map((col) => (
                 <div key={col.title} className="flex flex-col gap-6">
                   <span className="text-[13px] uppercase tracking-widest text-brand font-black border-b-2 border-zinc-800 pb-2">
                     {col.title}
                   </span>
                   <ul className="flex flex-col gap-4">
-                    {col.links.map(([label, href]) => (
-                      <li key={label}>
-                        <a
-                          href={href}
-                          className={`text-lg font-bold tracking-tight transition-colors ${
-                            col.muted
-                              ? "text-zinc-500 hover:text-white"
-                              : "text-white hover:text-brand"
-                          }`}
-                        >
-                          {label}
-                        </a>
-                      </li>
-                    ))}
+                    {col.links.map(([label, href]) => {
+                      const isInternal = href.startsWith("/");
+                      const cls = `text-lg font-bold tracking-tight transition-colors ${
+                        col.muted
+                          ? "text-zinc-500 hover:text-white"
+                          : "text-white hover:text-brand"
+                      }`;
+                      return (
+                        <li key={label}>
+                          {isInternal ? (
+                            <Link to={href} className={cls}>
+                              {label}
+                            </Link>
+                          ) : (
+                            <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>
+                              {label}
+                            </a>
+                          )}
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
               ))}

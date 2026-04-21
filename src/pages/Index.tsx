@@ -10,6 +10,7 @@ import CTABox from "@/components/sociospark/CTABox";
 import CaseStudies from "@/components/sociospark/CaseStudies";
 import Footer from "@/components/sociospark/Footer";
 import WhatsAppButton from "@/components/sociospark/WhatsAppButton";
+import StickyCTA from "@/components/sociospark/StickyCTA";
 
 const Index = () => {
   return (
@@ -29,6 +30,7 @@ const Index = () => {
       </main>
       <Footer />
       <WhatsAppButton />
+      <StickyCTA />
     </div>
   );
 };
