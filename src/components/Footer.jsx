@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export default function Footer() {
-  const footerRef = useScrollReveal<HTMLDivElement>({
+  const footerRef = useScrollReveal({
     className: "is-running",
     once: true,
     threshold: 0.1,
