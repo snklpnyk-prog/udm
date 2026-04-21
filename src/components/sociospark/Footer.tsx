@@ -60,18 +60,10 @@ export default function Footer() {
 
               <div className="flex flex-wrap items-center gap-4">
                 <a
-                  href="https://wa.me/919993663668"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-brand hover:bg-white text-white hover:text-black px-6 py-4 rounded-xl text-base font-black transition-colors duration-300 border-4 border-brand hover:border-white tracking-tighter"
-                >
-                  Chat on WhatsApp
-                </a>
-                <a
                   href="https://calendly.com/udmtechnosolution/30min"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white text-black px-6 py-4 rounded-xl text-base font-black border-4 border-white hover:border-brand hover:text-brand transition-colors tracking-tighter"
+                  className="bg-brand hover:bg-white text-white hover:text-black px-6 py-4 rounded-xl text-base font-black transition-colors duration-300 border-4 border-brand hover:border-white tracking-tighter"
                 >
                   Schedule a 15-min Call
                 </a>
@@ -90,7 +82,7 @@ export default function Footer() {
 
             <div className="col-span-1 lg:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-10 lg:pl-10 w-full">
               {[
-                { title: "Sitemap", links: [["Home", "/"], ["About", "/about"], ["Blog", "/blog"], ["Get Proposal", "/get-proposal"]] },
+                { title: "Sitemap", links: [["Home", "/"], ["About", "/about"], ["Case Studies", "/case-studies"], ["Blog", "/blog"], ["Contact", "/contact"]] },
                 { title: "Services", links: [["SEO", "/services/seo"], ["Google My Business", "/services/google-my-business"], ["Meta Ads", "/services/meta-ads"], ["Google Ads", "/services/google-ads"], ["Website", "/services/website"], ["Social Media", "/services/social-media"]] },
                 { title: "Social", links: [["Instagram", "https://instagram.com"], ["LinkedIn", "https://linkedin.com"], ["Facebook", "https://facebook.com"]] },
                 { title: "Legal", links: [["Privacy Policy", "/privacy"], ["Terms & Conditions", "/terms"]], muted: true },

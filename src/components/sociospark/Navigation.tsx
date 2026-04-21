@@ -34,17 +34,18 @@ export default function Navigation() {
             </div>
           </div>
         </div>
+        <Link to="/case-studies" className="hover:text-brand transition-colors">Case Studies</Link>
         <Link to="/blog" className="hover:text-brand transition-colors">Blog</Link>
-        <a href="/#case-studies" className="hover:text-brand transition-colors">Case Studies</a>
+        <Link to="/contact" className="hover:text-brand transition-colors">Contact</Link>
       </div>
 
       <div className="hidden lg:block">
-        <Link
-          to="/get-proposal"
+        <a
+          href="tel:+919993663668"
           className="bg-brand text-brand-foreground border-2 border-black rounded-xl px-6 py-3 font-bold text-base brutalist-shadow inline-block"
         >
-          Get Free Proposal
-        </Link>
+          Call Us
+        </a>
       </div>
 
       <button
@@ -66,14 +67,16 @@ export default function Navigation() {
           <Link to="/services/google-ads" onClick={() => setOpen(false)} className="font-bold px-3 py-2 rounded-lg hover:bg-brand">Google Ads</Link>
           <Link to="/services/website" onClick={() => setOpen(false)} className="font-bold px-3 py-2 rounded-lg hover:bg-brand">Website</Link>
           <Link to="/services/social-media" onClick={() => setOpen(false)} className="font-bold px-3 py-2 rounded-lg hover:bg-brand">Social Media</Link>
+          <Link to="/case-studies" onClick={() => setOpen(false)} className="font-bold px-3 py-2 rounded-lg hover:bg-brand">Case Studies</Link>
           <Link to="/blog" onClick={() => setOpen(false)} className="font-bold px-3 py-2 rounded-lg hover:bg-brand">Blog</Link>
-          <Link
-            to="/get-proposal"
+          <Link to="/contact" onClick={() => setOpen(false)} className="font-bold px-3 py-2 rounded-lg hover:bg-brand">Contact</Link>
+          <a
+            href="tel:+919993663668"
             onClick={() => setOpen(false)}
             className="bg-brand text-brand-foreground border-2 border-black rounded-xl px-4 py-2 font-black text-center"
           >
-            Get Free Proposal
-          </Link>
+            Call Us
+          </a>
         </div>
       )}
     </nav>

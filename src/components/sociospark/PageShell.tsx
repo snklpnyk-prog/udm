@@ -2,7 +2,6 @@ import { ReactNode } from "react";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
 import WhatsAppButton from "./WhatsAppButton";
-import StickyCTA from "./StickyCTA";
 
 export default function PageShell({ children }: { children: ReactNode }) {
   return (
@@ -11,7 +10,6 @@ export default function PageShell({ children }: { children: ReactNode }) {
       <main>{children}</main>
       <Footer />
       <WhatsAppButton />
-      <StickyCTA />
     </div>
   );
 }

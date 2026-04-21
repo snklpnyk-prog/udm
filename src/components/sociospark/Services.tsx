@@ -75,10 +75,10 @@ export default function Services() {
     { icon: "solar:map-point-linear", title: "Google My Business\nOptimization", href: "/services/google-my-business", variant: "brand" },
     { icon: "solar:smartphone-update-linear", title: "Meta Ads\n(Facebook & Instagram)", href: "/services/meta-ads", variant: "dark" },
     { icon: "solar:mouse-circle-linear", title: "Google\nAds", href: "/services/google-ads", variant: "light" },
-    { icon: "solar:target-linear", title: "Lead\nGeneration", href: "/get-proposal", variant: "brand" },
+    { icon: "solar:target-linear", title: "Lead\nGeneration", href: "/contact", variant: "brand" },
     { icon: "solar:chat-round-dots-linear", title: "Social Media\nMarketing", href: "/services/social-media", variant: "dark" },
     { icon: "solar:laptop-linear", title: "Website\nDevelopment", href: "/services/website", variant: "light" },
-    { icon: "solar:user-speak-linear", title: "Influencer\nMarketing", href: "/get-proposal", variant: "brand" },
+    { icon: "solar:user-speak-linear", title: "Influencer\nMarketing", href: "/contact", variant: "brand" },
   ];
 
   return (

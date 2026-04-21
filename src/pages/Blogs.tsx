@@ -209,10 +209,10 @@ export function BlogPost() {
           <h3 className="text-2xl font-black mb-2">Get Your Free Growth Plan Today</h3>
           <p className="text-zinc-300 mb-4">We help businesses rank in Top 10 on Google & generate consistent leads.</p>
           <Link
-            to="/get-proposal"
+            to="/contact"
             className="inline-block bg-brand text-brand-foreground border-2 border-brand rounded-xl px-6 py-3 font-black"
           >
-            Get Free Proposal
+            Contact Our Team
           </Link>
         </div>
       </article>
